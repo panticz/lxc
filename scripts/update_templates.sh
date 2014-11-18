@@ -6,6 +6,9 @@ if [ $(id -u) -ne 0 ]; then
   exit
 fi
 
+# set language to english
+LANG=en_US.UTF-8
+
 # update debian templates
 for DIST in $(ls /var/cache/lxc/debian); do
   echo "Updating ${DIST} ..."
