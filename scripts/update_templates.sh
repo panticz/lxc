@@ -9,7 +9,7 @@ fi
 # set language to english
 LANG=en_US.UTF-8
 
-# update debian templates
+# update APT rootfs (Debian and Ubuntu)
 for DIST in $(ls /var/cache/lxc/debian); do
   echo "Updating ${DIST} ..."
   chroot "/var/cache/lxc/debian/${DIST}" apt-get update 
