@@ -12,6 +12,9 @@ echo "lxc.aa_profile = unconfined" | sudo tee -a /var/lib/lxc/${CONTAINER}/confi
 # start container in background
 sudo lxc-start -d -n ${CONTAINER}
 
+# wait 3 seconds until network is up
+sleep 3
+
 # update packages in container
 sudo lxc-attach -n ${CONTAINER} -- apt-get update
 sudo lxc-attach -n ${CONTAINER} -- apt-get dist-upgrade -y
