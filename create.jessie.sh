@@ -1,6 +1,6 @@
 #!/bin/bash
 
-[ -z $CONTAINER ] && CONTAINER=jessie
+[ -z ${CONTAINER} ] && CONTAINER=jessie
 LANG=en_US.UTF-8
 
 # create container
