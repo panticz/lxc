@@ -23,3 +23,6 @@ sleep 3
 # update packages in container
 sudo lxc-attach -n ${CONTAINER} -- apt-get update
 sudo lxc-attach -n ${CONTAINER} -- apt-get dist-upgrade -y
+
+# show containers status
+sudo lxc-ls ${CONTAINER} -f
