@@ -11,6 +11,11 @@ fi
 # create container
 sudo lxc-create -t debian -n ${CONTAINER} -- template-options -r wheezy
 
+# set container MAC address if specified
+if [ ! -z ${CONTAINER_MAC} ]; then
+  sed -i "s|lxc.network.hwaddr = .*|lxc.network.hwaddr = ${CONTAINER_MAC}|" /var/lib/lxc/${CONTAINER}/config
+fi
+
 # start container in background
 sudo lxc-start -d -n ${CONTAINER}
 
