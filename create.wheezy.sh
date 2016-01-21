@@ -23,7 +23,7 @@ sudo lxc-start -d -n ${CONTAINER}
 sleep 3
 
 # copy APT proxy configuration from host
-APT_PROXY=$(sudo grep -h "Acquire::http::Proxy" /etc/apt/* -r | head -1)
+APT_PROXY=$(grep -h "Acquire::http::Proxy" /etc/apt/* -r | head -1)
 [ -n "${APT_PROXY}" ] && echo ${APT_PROXY} | sudo tee /var/lib/lxc/${CONTAINER}/rootfs/etc/apt/apt.conf.d/01proxy
 
 # update packages in container
