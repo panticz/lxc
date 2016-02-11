@@ -12,8 +12,8 @@ LANG=en_US.UTF-8
 # update APT rootfs (Debian and Ubuntu)
 for DIST in $(ls /var/cache/lxc/debian); do
   echo "Updating ${DIST} ..."
-  chroot "/var/cache/lxc/debian/${DIST}" apt-get update 
-  chroot "/var/cache/lxc/debian/${DIST}" apt-get dist-upgrade -y
-  chroot "/var/cache/lxc/debian/${DIST}" apt-get autoremove -y
+  chroot "/var/cache/lxc/debian/${DIST}" apt-get update -qq
+  chroot "/var/cache/lxc/debian/${DIST}" apt-get dist-upgrade -qq -y
+  chroot "/var/cache/lxc/debian/${DIST}" apt-get autoremove -qq -y
   chroot "/var/cache/lxc/debian/${DIST}" apt-get clean
 done
